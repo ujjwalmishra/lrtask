@@ -29,6 +29,7 @@ const app = express();
 
 module.exports = app;
 console.log("Environemnt is " + process.env.NODE_ENV);
+console.log("Mongo uri is " + MONGOHQ_URL);
 // Bootstrap models
 fs.readdirSync(models)
   .filter(file => ~file.search(/^[^\.].*\.js$/))
