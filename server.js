@@ -28,7 +28,7 @@ const app = express();
  */
 
 module.exports = app;
-
+console.log("Environemnt is " + process.env.NODE_ENV);
 // Bootstrap models
 fs.readdirSync(models)
   .filter(file => ~file.search(/^[^\.].*\.js$/))
