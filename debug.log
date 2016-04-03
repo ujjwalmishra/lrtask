@@ -1,0 +1,9 @@
+
+> nodejs-express-mongoose-demo@4.0.0 start /home/ujjwal/playground/assignment/node-express-mongoose-demo
+> NODE_ENV=development ./node_modules/.bin/nodemon server.js
+
+[33m[nodemon] 1.9.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m

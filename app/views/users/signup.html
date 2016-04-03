@@ -1,7 +1,7 @@
 {% extends 'auth.html' %}
 
 {% block auth %}
-  <form action="/users" method="post" role="form" class="form-horizontal">
+  <!-- <form action="/users" method="post" role="form" class="form-horizontal">
     <input type="hidden" name="_csrf" value="{{ csrf_token }}">
 
     <div class="form-group">
@@ -39,5 +39,54 @@
         <a href="/login" class="show-login">Log in</a>
       </div>
     </div>
-  </form>
+  </form> -->
+  <div id="registration-container"></div>
+  <script >
+  $LR.util.ready(function() {
+    LoginRadiusRaaS.init(raasoption, 'registration', function(response) {
+      // On Success
+      console.log(response);
+    }, function(errors) {
+      // On Errors
+      console.log(errors);
+    }, "registration-container");
+  });
+  </script>
+  <p>Or Signup Using Social </p>
+<script type="text/javascript">
+    $LR.util.ready(function() {
+    raasoption.templatename = "loginradiuscustom_tmpl";
+    raasoption.hashTemplate = true;
+    LoginRadiusRaaS.CustomInterface(".interfacecontainerdiv", raasoption);
+});  
+</script>
+
+<div class="interfacecontainerdiv"></div>
+  <script type="text/html" id="loginradiuscustom_tmpl">
+    <a class="lr-provider-label" href="javascript:void(0)" onclick="return  $LR.util.openWindow('<#= Endpoint #>&is_access_token=true&callback=<#= window.location #>');" title="<#= Name #>" alt="Sign in with <#=Name#>">
+        <#=Name#>
+    </a>
+</script>
+<script type="text/javascript">
+$LR.util.ready(function() {
+    LoginRadiusRaaS.init(raasoption, 'sociallogin', function(response) {
+        // On Success this callback will call
+        // response will be string as token
+        console.log("Ok  + " + response);
+    }, function(errors) {
+        // on failure this function will call ‘errors’ which is an array of errors with message.
+        // every kind of error will be returned in this method
+        // you can run a loop on this array.
+        console.log("Error " + errors);
+        errors.forEach(function(err){
+          console.log(err);
+          if(err.errorCode == '970'){
+            alert("Kindly verify your email");
+          }
+        })
+    }, "social-login-container");
+});
+</script>
+<div id="social-login-container"></div>
 {% endblock %}
+

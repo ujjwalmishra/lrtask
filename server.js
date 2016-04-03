@@ -14,9 +14,11 @@ const fs = require('fs');
 const join = require('path').join;
 const express = require('express');
 const mongoose = require('mongoose');
-const passport = require('passport');
 const config = require('./config/config');
+const lrconfig = require('./config/loginradius');
 
+//Initialize loginradius sdk
+const loginrad = require('loginradius-sdk')(lrconfig);
 const models = join(__dirname, 'app/models');
 const port = process.env.PORT || 3000;
 const app = express();
@@ -33,9 +35,8 @@ fs.readdirSync(models)
   .forEach(file => require(join(models, file)));
 
 // Bootstrap routes
-require('./config/passport')(passport);
-require('./config/express')(app, passport);
-require('./config/routes')(app, passport);
+require('./config/express')(app);
+require('./config/routes')(app, loginrad);
 
 connect()
   .on('error', console.log)

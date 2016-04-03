@@ -46,3 +46,22 @@
     </div>
   </div>
 </nav>
+<script>
+  raasoption = {};
+  raasoption.apikey = '{{apikey}}';
+  raasoption.appName = '{{appname}}';
+  raasoption.emailVerificationUrl = "/userreg/login";
+  raasoption.forgotPasswordUrl = "/userreg/login";
+  raasoption.passwordlength = {
+    min: 10,
+    max: 32
+  };
+  raasoption.formRenderDelay = 100;
+  raasoption.inFormvalidationMessage = true / false;
+  raasoption.V2Recaptcha = true;
+  raasoption.enableLoginOnEmailVerification = true;
+  raasoption.termsAndConditionHtml = "<p>Accept <a style='font-size: 12px;display: inline;' href='https://www.loginradius.com/loginradius/terms'> Terms</a> and <a href='https://www.loginradius.com/loginradius/privacy' style='font-size: 12px;display: inline;'>Condition</a> By clicking on Register<p>";
+  raasoption.templatename = "loginradiuscustom_tmpl";
+  raasoption.hashTemplate = true;
+</script>
+<script src="//cdn.loginradius.com/hub/prod/js/LoginRadiusRaaS.js"></script>

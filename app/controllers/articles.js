@@ -39,7 +39,9 @@ exports.index = wrap(function* (req, res) {
     title: 'Articles',
     articles: articles,
     page: page + 1,
-    pages: Math.ceil(count / limit)
+    pages: Math.ceil(count / limit),
+    apikey: 'd9eb69bf-a0dd-4039-a160-f96f5c553cb8',
+    appname: 'lr-assignment4' 
   });
 });
 
